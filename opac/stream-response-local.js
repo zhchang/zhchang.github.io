@@ -9,6 +9,7 @@ const API_URL = "http://localhost:8080/v1/chat/completions";
 const API_KEY = "YOUR_API_KEY";
 
 const promptInput = document.getElementById("promptInput");
+const baseUrlInput  = document.getElementById("baseUrlInput");
 const generateBtn = document.getElementById("generateBtn");
 const stopBtn = document.getElementById("stopBtn");
 const resultText = document.getElementById("resultText");
@@ -19,6 +20,10 @@ const generate = async () => {
   // Alert the user if no prompt value
   if (!promptInput.value) {
     alert("Please enter a prompt.");
+    return;
+  }
+  if (!baseUrlInput.value) {
+    alert("Please enter a base url.");
     return;
   }
 
@@ -33,7 +38,7 @@ const generate = async () => {
 
   try {
     // Fetch the response from the OpenAI API with the signal from AbortController
-    const response = await fetch(API_URL, {
+    const response = await fetch(baseUrlInput.value, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
