@@ -38,7 +38,7 @@ const generate = async () => {
 
   try {
     // Fetch the response from the OpenAI API with the signal from AbortController
-    const response = await fetch(baseUrlInput.value, {
+    const response = await fetch(baseUrlInput.value+'/chat/completions', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
