@@ -73,6 +73,7 @@ const generate = async () => {
         // Update the UI with the new content
         if (content) {
           resultText.innerText += content;
+          console.log(`stream: "${content}"`);
         }
       }
     }
